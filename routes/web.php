@@ -14,6 +14,6 @@
 use App\Models;
 
 $router->get('/members', function () {
-    $members = Models\Member::all();
+    $members = Models\Member::with('subscription')->get();
     return response()->json(['error' => false, 'data' => $members]);
 });
